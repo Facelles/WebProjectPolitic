@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мої завдання - Steam Vision</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Iowan Old Style", Georgia, serif;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            background-color: rgba(201, 178, 95, 0.9);
+        }
+
+        /* Навігація */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 46px 73px;
+        }
+
+        .nav-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2F1D32;
+            text-decoration: none;
+            font-family: "Iowan Old Style", Georgia, serif;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-link {
+            padding: 10px 24px;
+            border-radius: 60px;
+            background: rgba(72, 47, 50, 0.15);
+            color: #2F1D32;
+            text-decoration: none;
+            font-family: "Iowan Old Style", Georgia, serif;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .auth-button {
+            padding: 10px 24px;
+            border-radius: 60px;
+            background: rgba(217, 217, 217, 0.3);
+            color: #F2F0EB;
+            text-decoration: none;
+            font-family: "Iowan Old Style", Georgia, serif;
+        }
+
+        /* Картки завдань */
+        .tasks-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 1200px;
+            margin-top: 100px;
+        }
+
+        .task-card {
+            background: #DDDDDD;
+            border-radius: 32px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            height: 561px;
+        }
+
+        .task-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .task-status {
+            color: #333334;
+            font-size: 14px;
+        }
+
+        .task-free {
+            background: white;
+            border-radius: 9999px;
+            padding: 6px 8px;
+            font-size: 14px;
+            color: #050505;
+        }
+
+        .task-title {
+            text-align: left;
+            width: 100%;
+            color: #180C02;
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .task-image {
+            width: 350px;
+            height: 350px;
+            object-fit: contain;
+            margin: 20px 0;
+        }
+
+        .task-rating {
+            align-self: flex-start;
+            background: white;
+            border-radius: 20px;
+            padding: 5px 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: auto;
+        }
+
+        /* Додаємо нові стилі */
+        .task-image-button {
+            border: none;
+            background: none;
+            padding: 0;
+            cursor: pointer;
+            width: 100%;
+            height: 350px;
+            transition: transform 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .task-image-button:hover {
+            transform: scale(1.05);
+        }
+
+        .task-image-button:active {
+            transform: scale(0.95);
+        }
+
+        .c-image {
+            width: 300px;
+            height: 300px;
+            object-fit: contain;
+        }
+
+        .cpp-image {
+            width: 400px;
+            height: 400px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="/" class="nav-logo">STEAM VISION</a>
+            <div class="nav-menu">
+                <a href="rewardstore.html" class="nav-link">Магазин нагород</a>
+                <a href="hackathons.html" class="nav-link">Хакатони</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="/register" class="auth-button">Реєстрація</a>
+                <a href="/login" class="auth-button">Вхід</a>
+            </div>
+        </nav>
+
+        <div class="tasks-grid">
+            <!-- Картка C++ -->
+            <div class="task-card">
+                <div class="task-header">
+                    <div class="task-status">Доступний постійно</div>
+                    <div class="task-free">Безкоштовно</div>
+                </div>
+                <h2 class="task-title">Уроки з С++</h2>
+                <button class="task-image-button">
+                    <img src="pc/Group 2 - button.svg" alt="C++ Logo" class="task-image cpp-image">
+                </button>
+                <div class="task-rating">
+                    <img src="pc/Component 1.svg" alt="Rating" width="13" height="13">
+                    <span>9</span>
+                </div>
+            </div>
+
+            <!-- Картка C -->
+            <div class="task-card">
+                <div class="task-header">
+                    <div class="task-status">Доступний постійно</div>
+                    <div class="task-free">Безкоштовно</div>
+                </div>
+                <h2 class="task-title">Уроки з С</h2>
+                <button class="task-image-button">
+                    <img src="pc/logoc 1 - button.svg" alt="C Logo" class="task-image c-image">
+                </button>
+                <div class="task-rating">
+                    <img src="pc/Component 1.svg" alt="Rating" width="13" height="13">
+                    <span>8.8</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

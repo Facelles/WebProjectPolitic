@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин нагород - Steam Vision</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Iowan Old Style", Georgia, serif;
+            background: white;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            background-color: rgba(201, 178, 95, 0.9);
+            padding: 50px 92px;
+            box-sizing: border-box;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .nav-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2F1D32;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            padding: 10px 24px;
+            border-radius: 60px;
+            background: rgba(72, 47, 50, 0.15);
+            color: #2F1D32;
+            text-decoration: none;
+        }
+
+        .balance-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: rgba(72, 47, 50, 0.3);
+            border-radius: 40px;
+        }
+
+        .balance-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .balance-label {
+            font-size: 13px;
+            color: #2F1D32;
+        }
+
+        .balance-amount {
+            font-size: 13px;
+            color: #2F1D32;
+        }
+
+        .balance-icon {
+            width: 58px;
+            height: 50px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 100px;
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product-image {
+            width: 324px;
+            height: 450px;
+            object-fit: contain;
+            margin-bottom: 17px;
+        }
+
+        .buy-button {
+            width: 324px;
+            height: 58px;
+            background: #D9D9D9;
+            border-radius: 30px;
+            border: none;
+            color: #2F1D32;
+            font-size: 16px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .rotated {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="index.html" class="nav-logo">STEAM VISION</a>
+            <div class="nav-menu">
+                <a href="task.html" class="nav-link">Мої завдання</a>
+                <a href="hackathons.html" class="nav-link">Хакатони</a>
+            </div>
+            <div class="balance-section">
+                <div class="balance-info">
+                    <span class="balance-label">Баланс</span>
+                    <span class="balance-amount">2000</span>
+                </div>
+                <img src="pc/logo.png" alt="Balance" class="balance-icon">
+            </div>
+        </nav>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="pc/rubybooks.webp" alt="Ruby для дітей" class="product-image">
+                <button class="buy-button">250 Балів</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="pc/bok.webp" alt="JavaScript для дітей" class="product-image">
+                <button class="buy-button">350 Балів</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="pc/81_4000.png" alt="Клавіатура" class="product-image rotated">
+                <button class="buy-button">1050 Балів</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

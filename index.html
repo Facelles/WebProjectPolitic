@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEAM VISION</title>
+    <style>
+        :root {
+            --primary-color: #2F1D32;
+            --secondary-color: #F2F0EB;
+            --background-color: #C9B35F;
+            --button-bg: rgba(72, 47, 50, 0.15);
+            --nav-button-bg: rgba(217, 217, 217, 0.3);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Iowan Old Style", Georgia, serif;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            background-color: var(--background-color);
+            opacity: 0.9;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 46px 73px;
+        }
+
+        .nav-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-family: "Iowan Old Style", Georgia, serif;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-link {
+            padding: 10px 24px;
+            border-radius: 60px;
+            background: var(--button-bg);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-family: "Iowan Old Style", Georgia, serif;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .auth-button {
+            padding: 10px 24px;
+            border-radius: 60px;
+            background: var(--nav-button-bg);
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-family: "Iowan Old Style", Georgia, serif;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 100px;
+            flex-grow: 1;
+            align-items: center;
+        }
+
+        .hero-section {
+            max-width: 799px;
+        }
+
+        .hero-title {
+            font-size: 64px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 278px;
+            text-align: center;
+            font-family: "Iowan Old Style", Georgia, serif;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 80px;
+        }
+
+        .social-link {
+            text-align: center;
+            text-decoration: none;
+            color: #000;
+            width: 150px;
+        }
+
+        .social-icon {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 8px;
+            object-fit: contain;
+        }
+
+        .main-image {
+            width: 506px;
+            height: 759px;
+            object-fit: cover;
+        }
+
+        .social-link p {
+            margin: 0;
+            margin-top: 15px;
+            margin-bottom: 4px;
+            font-size: 16px;
+            line-height: 1.5;
+            font-family: "Iowan Old Style", Georgia, serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="index.html" id="steamVisionBtn" class="nav-logo">STEAM VISION</a>
+            
+            <div class="nav-menu">
+                <a href="rewardstore.html" id="rewardsLink" class="nav-link">Магазин нагород</a>
+                <a href="task.html" id="tasksLink" class="nav-link">Мої завдання</a>
+                <a href="hackathons.html" id="hackathonsLink" class="nav-link">Хакатони</a>
+            </div>
+
+            <div class="auth-buttons">
+                <a href="register.html" class="auth-button">Реєстрація</a>
+                <a href="login.html" class="auth-button">Вхід</a>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <div class="hero-section">
+                <h1 class="hero-title">Steam vision - твій шлях до успіху</h1>
+                
+                <div class="social-links">
+                    <a href="https://instagram.com" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <p>Instagram</p>
+                        <img src="pc/instagram - button.svg" alt="Instagram" class="social-icon">
+                    </a>
+                    
+                    <a href="/about" class="social-link">
+                        <p>Про нас</p>
+                        <img src="pc/people - button.svg" alt="Про нас" class="social-icon">
+                    </a>
+                </div>
+            </div>
+
+            <img src="pc/main.png" alt="Main Image" class="main-image">
+        </main>
+
+        <main class="tasks-content" style="display: none;">
+            <h1>Мої завдання</h1>
+            <!-- Тут буде контент для сторінки завдань -->
+        </main>
+
+        <main class="hackathons-content" style="display: none;">
+            <h1>Хакатони</h1>
+            <!-- Тут буде контент для сторінки хакатонів -->
+        </main>
+    </div>
+    <script src="main.ts"></script>
+</body>
+</html>
+
