@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Уроки - STEAM Vision</title>
+    <style>
+        :root {
+            --primary-color: #2F1D32;
+            --secondary-color: #F2F0EB;
+            --background-color: rgba(201, 178, 95, 0.9);
+            --button-bg: rgba(72, 47, 50, 0.15);
+            --nav-button-bg: rgba(217, 217, 217, 0.3);
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: "Iowan Old Style", Georgia, serif;
+            background-color: var(--background-color);
+            min-height: 100vh;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 46px 73px;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            text-shadow: 0 0 10px rgba(47, 29, 50, 0.3);
+            transform: scale(1.05);
+        }
+
+        .back-button {
+            padding: 10px 30px;
+            border-radius: 60px;
+            background: var(--button-bg);
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: inherit;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-content {
+            display: flex;
+            gap: 50px;
+            padding: 0 100px;
+            margin-top: 50px;
+            animation: fadeIn 1s ease-out 0.3s both;
+            align-items: center;
+        }
+
+        .lesson-card {
+            flex: 0 0 350px;
+            height: 450px;
+            background: #D9D9D9;
+            border-radius: 32px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .c-logo {
+            width: 100%;
+            height: auto;
+            max-width: 250px;
+            display: block;
+            transition: all 0.3s ease;
+            margin: 0;
+        }
+
+        .c-logo:hover {
+            transform: scale(1.1);
+        }
+
+        .lessons-container {
+            flex: 1;
+            background: #D9D9D9;
+            border-radius: 60px;
+            padding: 40px;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .lesson-item {
+            color: var(--primary-color);
+            font-size: 18px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 12px 15px;
+            border-radius: 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .lesson-item:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateX(10px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" class="logo">STEAM VISION</a>
+        <button class="back-button" onclick="history.back()">Назад</button>
+    </div>
+
+    <div class="main-content">
+        <div class="lesson-card">
+            <img src="pc/logoc 1 - button.svg" alt="C Logo" class="c-logo">
+        </div>
+
+        <div class="lessons-container">
+            <a href="pc/lesson1c.pdf" class="lesson-item" target="_blank">1. Змінні, типи даних та їх оголошення</a>
+            <a href="pc/lesson2c.pdf" class="lesson-item" target="_blank">2. Основні операції: арифметичні, логічні, порівняння</a>
+            <a href="pc/lesson3c.pdf" class="lesson-item" target="_blank">3. Умовні конструкції (if, else, switch)</a>
+            <a href="pc/lesson4c.pdf" class="lesson-item" target="_blank">4. Цикли (for, while, do-while)</a>
+            <a href="pc/lesson5c.pdf" class="lesson-item" target="_blank">5. Функції: оголошення, виклик, передача аргументів, повернення значень</a>
+        </div>
+    </div>
+</body>
+</html>

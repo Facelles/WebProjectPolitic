@@ -23,6 +23,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 46px 73px;
+            animation: slideIn 0.8s ease-out;
         }
 
         .nav-logo {
@@ -31,6 +32,12 @@
             color: #2F1D32;
             text-decoration: none;
             font-family: "Iowan Old Style", Georgia, serif;
+            transition: all 0.3s ease;
+        }
+
+        .nav-logo:hover {
+            text-shadow: 0 0 10px rgba(47, 29, 50, 0.3);
+            transform: scale(1.05);
         }
 
         .nav-menu {
@@ -45,6 +52,36 @@
             color: #2F1D32;
             text-decoration: none;
             font-family: "Iowan Old Style", Georgia, serif;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link:hover:before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .nav-link:active {
+            transform: translateY(1px);
         }
 
         .auth-buttons {
@@ -59,6 +96,13 @@
             color: #F2F0EB;
             text-decoration: none;
             font-family: "Iowan Old Style", Georgia, serif;
+            transition: all 0.3s ease;
+        }
+
+        .auth-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            background: rgba(217, 217, 217, 0.4);
         }
 
         /* Картки завдань */
@@ -70,6 +114,7 @@
             margin: 0 auto;
             max-width: 1200px;
             margin-top: 100px;
+            animation: fadeIn 1s ease-out 0.3s both;
         }
 
         .task-card {
@@ -79,6 +124,13 @@
             display: flex;
             flex-direction: column;
             height: 561px;
+            animation: scaleIn 0.8s ease-out calc(0.5s + var(--i, 0) * 0.2s) both;
+            transition: all 0.3s ease;
+        }
+
+        .task-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
         .task-header {
@@ -135,7 +187,7 @@
             cursor: pointer;
             width: 100%;
             height: 350px;
-            transition: transform 0.2s;
+            transition: all 0.3s ease;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -160,6 +212,39 @@
             height: 400px;
             object-fit: contain;
         }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -177,14 +262,13 @@
         </nav>
 
         <div class="tasks-grid">
-            <!-- Картка C++ -->
-            <div class="task-card">
+            <div class="task-card" style="--i: 0">
                 <div class="task-header">
                     <div class="task-status">Доступний постійно</div>
                     <div class="task-free">Безкоштовно</div>
                 </div>
                 <h2 class="task-title">Уроки з С++</h2>
-                <button class="task-image-button">
+                <button class="task-image-button" id="cppButton">
                     <img src="pc/Group 2 - button.svg" alt="C++ Logo" class="task-image cpp-image">
                 </button>
                 <div class="task-rating">
@@ -193,14 +277,13 @@
                 </div>
             </div>
 
-            <!-- Картка C -->
-            <div class="task-card">
+            <div class="task-card" style="--i: 1">
                 <div class="task-header">
                     <div class="task-status">Доступний постійно</div>
                     <div class="task-free">Безкоштовно</div>
                 </div>
                 <h2 class="task-title">Уроки з С</h2>
-                <button class="task-image-button">
+                <button class="task-image-button" id="cButton">
                     <img src="pc/logoc 1 - button.svg" alt="C Logo" class="task-image c-image">
                 </button>
                 <div class="task-rating">
@@ -210,5 +293,49 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cppButton = document.getElementById('cppButton');
+            if (cppButton) {
+                cppButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.location.href = 'cpp_lessons.html';
+                });
+            }
+            const cButton = document.getElementById('cButton');
+            if (cButton) {
+                cButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.location.href = 'c_lessons.html';
+                });
+            }
+
+            // Обробник для ло��отипу
+            const steamVisionBtn = document.querySelector('.nav-logo');
+            if (steamVisionBtn) {
+                steamVisionBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.location.href = 'index.html';
+                });
+            }
+
+            const rewardsLink = document.querySelector('a[href="rewardstore.html"]');
+            if (rewardsLink) {
+                rewardsLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.location.href = 'rewardstore.html';
+                });
+            }
+
+            const hackathonsLink = document.querySelector('a[href="hackathons.html"]');
+            if (hackathonsLink) {
+                hackathonsLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.location.href = 'hackathons.html';
+                });
+            }
+        });
+    </script>
 </body>
 </html>
