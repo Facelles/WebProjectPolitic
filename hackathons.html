@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хакатони - STEAM Vision</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            padding-bottom: 100px;
+            font-family: Arial, sans-serif;
+            background-color: rgba(201, 178, 95, 0.9);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            color: #2F1D32;
+            font-size: 36px;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: serif;
+            line-height: 1;
+            z-index: 1;
+        }
+
+        .nav-container {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            background-color: rgba(72, 50, 50, 0.15);
+            text-decoration: none;
+            border-radius: 30px;
+            padding: 12px 30px;
+            color: #2F1D32;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(72, 50, 50, 0.25);
+        }
+
+        .main-content {
+            display: flex;
+            gap: 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-top: 150px;
+            justify-content: center;
+        }
+
+        .image-container {
+            flex: 0 0 600px;
+            perspective: 1000px;
+        }
+
+        .image-flipper {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            transition: transform 1.5s;
+            transform-style: preserve-3d;
+        }
+
+        .hackathon-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 30px;
+            border: 4px solid rgb(100, 149, 237);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .flip-out {
+            animation: flipOut 1.5s ease-out forwards;
+        }
+
+        .flip-in {
+            animation: flipIn 1.5s ease-out forwards;
+        }
+
+        @keyframes flipOut {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(90deg); }
+        }
+
+        @keyframes flipIn {
+            from { transform: rotateY(-90deg); }
+            to { transform: rotateY(0deg); }
+        }
+
+        .events-container {
+            flex: 0 0 450px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 30px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .events-title {
+            color: #2F1D32;
+            font-size: 24px;
+            margin-bottom: 30px;
+            font-weight: normal;
+            text-align: center;
+            white-space: pre-wrap;
+        }
+
+        .event-item {
+            color: #2F1D32;
+            margin-bottom: 20px;
+            font-size: 16px;
+            text-align: center;
+            white-space: pre-wrap;
+            line-height: 1.5;
+        }
+
+        .event-item:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" class="logo">STEAM VISION</a>
+        <div class="nav-container">
+            <a href="rewardstore.html" class="nav-link">Магазин нагород</a>
+            <a href="task.html" class="nav-link">Мої завдання</a>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="image-container">
+            <div class="image-flipper">
+                <img src="pc/photo_2024-08-21_13-27-07.webp" alt="Хакатон" class="hackathon-image active">
+            </div>
+        </div>
+
+        <div class="events-container">
+            <h2 class="events-title">Найближчі хакатони</h2>
+            <div class="event-item">Львів - 12.12 в 12:00, вул. Степана Бандери,12</div>
+            <div class="event-item">Київ - 18.12 в 21:00, вул. Лесі Українки, 1</div>
+            <div class="event-item">Київ - 20.12 в 21:00, вул. Лесі Українкии, 1</div>
+            <div class="event-item">Одесса - 28.12 в 19:30, вул. Степана бандери, 6</div>
+            <div class="event-item">Харків - 30.12 в 11:20, вул. Івана Франка, 1/3a</div>
+            <div class="event-item">Харків - 1.01 в 21:00, вул. Івана Франка, 1/3a</div>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            'pc/photo_2024-08-21_13-27-07.webp',
+            'pc/0AQoluKDXi9bEkhmJzO.jpeg',
+            'pc/mycollages-9-800x600.jpg',
+            'pc/steam.jpg'
+        ];
+        
+        let currentImageIndex = 0;
+        const flipper = document.querySelector('.image-flipper');
+        
+        function changeImage() {
+            const newImage = document.createElement('img');
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            newImage.src = images[currentImageIndex];
+            newImage.className = 'hackathon-image';
+            newImage.alt = 'Хакатон';
+            
+            newImage.onerror = function() {
+                console.error('Помилка завантаження зображення:', images[currentImageIndex]);
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                newImage.src = images[currentImageIndex];
+            };
+            
+            const currentImage = flipper.querySelector('.hackathon-image');
+            currentImage.classList.add('flip-out');
+            
+            setTimeout(() => {
+                flipper.innerHTML = '';
+                newImage.classList.add('flip-in');
+                flipper.appendChild(newImage);
+            }, 750);
+        }
+
+        setInterval(changeImage, 10000);
+    </script>
+</body>
+</html>
