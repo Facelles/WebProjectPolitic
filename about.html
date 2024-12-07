@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Про нас - STEAM Vision</title>
+    <style>
+        :root {
+            --primary-color: #2F1D32;
+            --secondary-color: #F2F0EB;
+            --background-color: rgba(201, 178, 95, 0.9);
+            --button-bg: rgba(72, 47, 50, 0.15);
+            --nav-button-bg: rgba(217, 217, 217, 0.3);
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: "Iowan Old Style", Georgia, serif;
+            background-color: var(--background-color);
+            min-height: 100vh;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 46px 73px;
+            position: relative;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-family: "Iowan Old Style", Georgia, serif;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            text-shadow: 0 0 10px rgba(47, 29, 50, 0.3);
+            transform: scale(1.05);
+        }
+
+        .nav-container {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 32px;
+            z-index: 0;
+        }
+
+        .nav-link {
+            padding: 10px 24px;
+            border-radius: 60px;
+            background: var(--button-bg);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-family: "Iowan Old Style", Georgia, serif;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link:hover:before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .nav-link:active {
+            transform: translateY(1px);
+        }
+
+        .main-content {
+            display: flex;
+            gap: 50px;
+            padding: 0 100px;
+            margin-top: 50px;
+            animation: fadeIn 1s ease-out 0.3s both;
+            align-items: flex-start;
+        }
+
+        .content-section {
+            flex: 1;
+            background: #D9D9D9;
+            border-radius: 60px;
+            padding: 40px;
+            animation: scaleIn 0.8s ease-out 0.5s both;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .content-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .content-title {
+            color: var(--primary-color);
+            font-size: 28px;
+            margin-bottom: 40px;
+            font-weight: bold;
+            text-align: center;
+            animation: slideIn 0.5s ease-out;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .content-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .content-item {
+            color: var(--primary-color);
+            font-size: 18px;
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            animation: fadeIn 0.5s ease-out calc(var(--i) * 0.1s) both;
+            text-decoration: none;
+            display: block;
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .content-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+            transform: translateY(-50%);
+        }
+
+        .content-item:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateX(15px);
+            padding-left: 30px;
+        }
+
+        .content-item:hover::before {
+            width: 10px;
+        }
+
+        .content-item:active {
+            transform: translateX(15px) scale(0.98);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -100% 0; }
+            100% { background-position: 100% 0; }
+        }
+
+        .content-item {
+            background: linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0.1) 100%
+            );
+            background-size: 200% 100%;
+            animation: fadeIn 0.5s ease-out calc(var(--i) * 0.1s) both;
+        }
+
+        .content-item:hover {
+            animation: shimmer 1.5s infinite;
+        }
+
+        @media (max-width: 1200px) {
+            .main-content {
+                flex-direction: column;
+                padding: 0 50px;
+            }
+
+            .content-section {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" class="logo">STEAM VISION</a>
+        <div class="nav-container">
+            <a href="rewardstore.html" class="nav-link">Магазин нагород</a>
+            <a href="task.html" class="nav-link">Мої завдання</a>
+            <a href="hackathons.html" class="nav-link">Хакатони</a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="content-section">
+            <h2 class="content-title">Документи</h2>
+            <a href="docx/statute.pdf" target="_blank" class="content-item" style="--i:1">Статут</a>
+            <a href="docx/general_report.pdf" target="_blank" class="content-item" style="--i:2">Загальний звіт</a>
+            <a href="docx/pr_report.pdf" target="_blank" class="content-item" style="--i:3">Звіт PR-Менеджера</a>
+            <a href="docx/designer_report.pdf" target="_blank" class="content-item" style="--i:4">Звіт Дизайнера</a>
+            <a href="docx/tech_report.pdf" target="_blank" class="content-item" style="--i:5">Звіт Технічного Координатора</a>
+            <a href="docx/curator_report.pdf" target="_blank" class="content-item" style="--i:6">Звіт куратора</a>
+            <a href="docx/financial_report.pdf" target="_blank" class="content-item" style="--i:7">Звіт фінансового менеджера</a>
+        </div>
+
+        <div class="content-section">
+            <h2 class="content-title">Інформація</h2>
+            <a href="docx/presentation.pdf" target="_blank" class="content-item" style="--i:1">Презентація</a>
+            <a href="docx/diagrams.pdf" target="_blank" class="content-item" style="--i:2">Опитування</a>
+            <a href="docx/questionnaire.pdf" target="_blank" class="content-item" style="--i:3">Анкета</a>
+            <a href="docx/team.pdf" target="_blank" class="content-item" style="--i:4">Наша команда</a>
+            <a href="docx/participants.pdf" target="_blank" class="content-item" style="--i:5">Учасники</a>
+        </div>
+    </div>
+</body>
+</html>
